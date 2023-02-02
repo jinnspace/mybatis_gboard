@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+<mapper namespace="com.ezen.gboard.dao.IMemberDao">
+
+	<select id="getMember" resultType="com.ezen.gboard.dto.MemberVO">
+		select*from boardmember where userid=#{param1}
+	</select>
+
+	<insert id="memberJoin" parameterType="com.ezen.gboard.dto.MemberVO">
+	 	insert into boardmember(userid,pwd,name,email,phone) values(#{userid},#{pwd},#{name},#{email},#{phone})
+	 </insert>
+	 
+	 <update id="memberUpdate" parameterType="com.ezen.gboard.dto.MemberVO">
+	 	update boardmember set pwd=#{pwd},name=#{name},email=#{email},phone=#{phone} where userid=#{userid}
+	 </update>
+</mapper>
